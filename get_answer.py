@@ -1,4 +1,3 @@
-import imp
 import requests as re
 import urllib
 from nonebot import get_driver
