@@ -1,7 +1,7 @@
 from nonebot.adapters import Bot, Event, Message
 from nonebot.adapters.onebot.v11 import MessageSegment
 from nonebot.typing import T_State
-from nonebot.params import State, CommandArg
+from nonebot.params import CommandArg
 from nonebot.matcher import Matcher
 from nonebot import on_command
 import json
@@ -11,7 +11,7 @@ from .get_answer import *
 tellme = on_command("tellme")
 
 @tellme.handle()
-async def tellme_handle(bot: Bot, event: Event, matcher: Matcher, state: T_State = State(), arg: Message = CommandArg()):
+async def tellme_handle(bot: Bot, event: Event, matcher: Matcher, state: T_State, arg: Message = CommandArg()):
     try:
         arg = arg.extract_plain_text().strip()
         if not arg:
@@ -26,7 +26,7 @@ async def tellme_handle(bot: Bot, event: Event, matcher: Matcher, state: T_State
 calc = on_command("calc", aliases={'计算'})
 
 @calc.handle()
-async def calc_handle(bot: Bot, event: Event, matcher: Matcher, state: T_State = State(), arg: Message = CommandArg()):
+async def calc_handle(bot: Bot, event: Event, matcher: Matcher, state: T_State, arg: Message = CommandArg()):
     try:
         arg = arg.extract_plain_text().strip()
         if not arg:
